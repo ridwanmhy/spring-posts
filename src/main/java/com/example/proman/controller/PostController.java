@@ -28,6 +28,7 @@ public class PostController {
     // CREATE
     @PostMapping
     public PostEntity createPost(@RequestBody PostEntity post) {
+        System.out.println(post.getUser().getId());
         return postService.save(post);
     }
 
