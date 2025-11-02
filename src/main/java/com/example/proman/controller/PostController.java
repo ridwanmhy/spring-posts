@@ -3,7 +3,6 @@ package com.example.proman.controller;
 import com.example.proman.entity.PostEntity;
 import com.example.proman.service.PostService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +16,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
-@CrossOrigin(origins = "http://localhost:4200")
 public class PostController {
     private final PostService postService;
 
@@ -28,7 +26,6 @@ public class PostController {
     // CREATE
     @PostMapping
     public PostEntity createPost(@RequestBody PostEntity post) {
-        System.out.println(post.getUser().getId());
         return postService.save(post);
     }
 
